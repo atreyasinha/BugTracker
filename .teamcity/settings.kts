@@ -1,5 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
@@ -41,13 +40,6 @@ object Build : BuildType({
     }
 
     steps {
-        dockerCommand {
-            commandType = build {
-                source = file {
-                    path = "Dockerfile"
-                }
-            }
-        }
         maven {
             goals = "clean test"
             pomLocation = ".teamcity/pom.xml"
