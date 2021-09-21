@@ -1,0 +1,9 @@
+# enviroment configuration
+/venv
+
+# cypress tests files
+*/videos
+*/screenshots
+
+# macOS fs
+.DS_Store

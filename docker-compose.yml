@@ -1,0 +1,25 @@
+version: "3.8"
+services: 
+  web:
+    build: .
+    volumes: 
+      - .:/app
+    ports: 
+      - 8000:8000
+    image: web:app
+    container_name: django_web_app
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+  teamcity:
+    image: jetbrains/teamcity-server:latest
+    ports:
+      - 8111:8111
+    volumes:
+      - teamcity-server-datadir:/data/teamcity_server/datadir
+      - teamcity-server-logs:/opt/teamcity/logs
+    container_name: teamcity-server
+
+volumes:
+  teamcity-server-datadir:
+  teamcity-server-logs:
+  teamcity-server-conf:
+
