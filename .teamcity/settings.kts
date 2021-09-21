@@ -1,6 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCompose
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
@@ -60,9 +59,6 @@ object Build : BuildType({
             command = file {
                 filename = "manage.py"
             }
-        }
-        dockerCompose {
-            file = "docker-compose.yml"
         }
     }
 
