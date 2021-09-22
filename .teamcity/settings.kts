@@ -16,13 +16,7 @@ object Build : BuildType({
     }
 
     steps {
-        python {
-            environment = venv {
-            }
-            command = file {
-                filename = "manage.py"
-            }
-        }
+        
     }
 
     triggers {
