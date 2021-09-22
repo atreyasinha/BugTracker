@@ -16,6 +16,13 @@ object Build : BuildType({
     }
 
     steps {
+        python {
+            environment = venv {
+            }
+            command = file {
+                filename = "manage.py"
+            }
+        }
         script {
             name = "Run tests"
             scriptContent = """ npx cypress run """
