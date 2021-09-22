@@ -23,10 +23,6 @@ object Build : BuildType({
                 filename = "manage.py"
             }
         }
-        script {
-            name = "Run tests"
-            scriptContent = """ npx cypress run """
-        }
     }
 
     triggers {
