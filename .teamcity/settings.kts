@@ -20,6 +20,10 @@ object Build : BuildType({
         script {
             scriptContent = "echo 'Hello world!'"
         }
+
+        script {
+            scriptContent = "echo 'Hello world! Second time'"
+        }
     }
 
     triggers {
