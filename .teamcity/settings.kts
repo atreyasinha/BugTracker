@@ -18,7 +18,7 @@ object Build : BuildType({
 
     steps {
         script {
-            scriptContent = "echo 'Hello world!'"
+            scriptContent = "npx cypress run"
         }
     }
 
