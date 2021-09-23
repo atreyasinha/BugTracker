@@ -17,13 +17,6 @@ object Build : BuildType({
     }
 
     steps {
-        script {
-            scriptContent = "echo 'Hello world!'"
-        }
-
-        script {
-            scriptContent = "echo 'Hello world! Second time'"
-        }
     }
 
     triggers {
