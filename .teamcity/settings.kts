@@ -18,7 +18,7 @@ object Build : BuildType({
 
     steps {
         script {
-            scriptContent = "docker run -it -v $PWD:/e2e -w /e2e cypress/included:3.4.0"
+            scriptContent = "./node_modules/.bin/cypress run"
         }
     }
 
