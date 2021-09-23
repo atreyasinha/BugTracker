@@ -2,7 +2,6 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCompose
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
@@ -17,11 +16,6 @@ changeBuildType(RelativeId("Build")) {
     }
     steps {
         insert(0) {
-            dockerCompose {
-                file = "docker-compose.yml"
-            }
-        }
-        insert(1) {
             dockerCommand {
                 commandType = build {
                     source = file {
@@ -30,14 +24,14 @@ changeBuildType(RelativeId("Build")) {
                 }
             }
         }
-        insert(2) {
+        insert(1) {
             maven {
                 goals = "clean test"
                 pomLocation = ".teamcity/pom.xml"
                 runnerArgs = "-Dmaven.test.failure.ignore=true"
             }
         }
-        insert(3) {
+        insert(2) {
             python {
                 environment = venv {
                 }
