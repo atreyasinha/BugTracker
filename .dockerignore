@@ -1,9 +1,2 @@
 # enviroment configuration
 */venv
-
-# cypress files
-*/node_modules
-*/cypress
-cypress.json
-package-lock.json
-package.json
