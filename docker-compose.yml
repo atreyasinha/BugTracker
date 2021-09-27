@@ -9,24 +9,5 @@ services:
     image: web:app
     container_name: django_web_app
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-  teamcity:
-    image: jetbrains/teamcity-server:latest
-    ports:
-      - 8111:8111
-    volumes:
-      - teamcity-server-datadir:/data/teamcity_server/datadir
-      - teamcity-server-logs:/opt/teamcity/logs
-    container_name: teamcity-server
-  teamcity-agent:
-    image: jetbrains/teamcity-agent:latest
-    environment: 
-      SERVER_URL: http://teamcity:8111
-    volumes:
-      - teamcity-agent-conf:/data/teamcity_agent/conf
-      - /var/run/docker.sock:/car/run/docker.sock
 
-volumes:
-  teamcity-server-datadir:
-  teamcity-server-logs:
-  teamcity-agent-conf:
 
