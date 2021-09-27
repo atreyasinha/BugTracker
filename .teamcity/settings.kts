@@ -18,7 +18,7 @@ object Build : BuildType({
 
     steps {
         script {
-            scriptContent = "sudo systemctl start docker"
+            scriptContent = "dockerd"
         }
 
         script {
