@@ -3,10 +3,7 @@ pipeline {
 
   stages {
     stage('Build') {
-      steps {
-        sh 'python --version'
-        sh 'python3 manage.py runserver'
-      }
+      step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
     }
 
     stage('Test') {
