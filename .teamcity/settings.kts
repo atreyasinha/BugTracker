@@ -18,6 +18,10 @@ object Build : BuildType({
 
     steps {
         script {
+            scriptContent = "systemctl start docker"
+        }
+
+        script {
             scriptContent = "docker run -i -v .:/e2e -w /e2e cypress/included:3.4.0"
         }
     }
