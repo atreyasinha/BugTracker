@@ -5,7 +5,13 @@ pipeline {
     stage('Build') {
       steps {
         sh 'python --version'
-        echo 'Building..'
+        sh 'python manage.py runserver'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'npx cypress run'
       }
     }
   }
