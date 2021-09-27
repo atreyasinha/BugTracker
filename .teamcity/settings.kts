@@ -18,7 +18,7 @@ object Build : BuildType({
 
     steps {
         script {
-            scriptContent = "dockerd"
+            scriptContent = "sudo dockerd"
         }
 
         script {
