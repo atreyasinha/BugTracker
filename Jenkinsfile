@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
+                label 'docker'
                 dockerfile true
             }
 
@@ -15,7 +16,10 @@ pipeline {
 
         stage('Test') {
             agent {
-                docker { image 'cypress/base:10' }
+                docker { 
+                  label 'docker'
+                  image 'cypress/base:10' 
+                }
             }
             environment {
               CYPRESS_RECORD_KEY = credentials('cypress-example-kitchensink-record-key')
