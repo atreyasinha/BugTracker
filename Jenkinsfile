@@ -9,7 +9,10 @@ pipeline {
 
             steps {
                 sh 'python manage.py migrate'
-                sh 'python manage.py runserver'
+                sh 'nohup python manage.py runserver 0.0.0.0:8080 &'
+                echo 'This is working'
+                sh 'netstat -nlp | grep :8080'
+                sh 'kill pidnumber'
             }
         }
 
