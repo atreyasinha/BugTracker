@@ -1,18 +1,30 @@
 pipeline {
-  agent any
+    agent none
+    
+    stages {
+        stage('Build') {
+            agent {
+                dockerfile true
+            }
 
-  stages {
-    stage('Build') {
-      // step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
-      steps {
-        sh '/usr/local/bin/docker-compose up --build'
-      }
+            steps {
+                sh 'python manage.py migrate'
+                sh 'python manage.py runserver'
+            }
+        }
+
+        stage('Test') {
+            agent {
+                docker { image 'cypress/base:10' }
+            }
+            environment {
+              CYPRESS_RECORD_KEY = credentials('cypress-example-kitchensink-record-key')
+            }
+
+            steps {
+                sh 'npm ci'
+                sh "npm run test:ci:record"
+            }
+        }
     }
-
-    // stage('Test') {
-    //   steps {
-    //     sh 'npx cypress run'
-    //   }
-    // }
-  }
 }
