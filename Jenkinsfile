@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                dockerfile true
+                docker {
+                  image 'django:latest'
+                }
             }
 
             steps {
@@ -16,8 +18,10 @@ pipeline {
         stage('Test') {
             agent {
                 docker { 
-                  image 'cypress/base:10' 
-                }
+                  image 'cypress/base:10' }
+            }
+            environment {
+              CYPRESS_RECORD_KEY = credentials('cypress-example-kitchensink-record-key')
             }
 
             steps {
