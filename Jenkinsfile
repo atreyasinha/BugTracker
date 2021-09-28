@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                label 'docker'
                 dockerfile true
             }
 
@@ -17,7 +16,6 @@ pipeline {
         stage('Test') {
             agent {
                 docker { 
-                  label 'docker'
                   image 'cypress/base:10' 
                 }
             }
