@@ -4,7 +4,9 @@ pipeline {
   stages {
     stage('Build') {
       // step([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
-      sh '/usr/local/bin/docker-compose up --build'
+      steps {
+        sh '/usr/local/bin/docker-compose up --build'
+      }
     }
 
     // stage('Test') {
