@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                docker {
-                  image 'django:latest'
-                }
+                dockerfile true
             }
 
             steps {
