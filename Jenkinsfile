@@ -3,21 +3,25 @@ pipeline {
     
     stages {
         stage('Build') {
-            agent {
-                dockerfile true
-                label 'docker'
+            // agent {
+            //     dockerfile {
+            //       filename "back-end/dockerfiles/ci/Dockerfile"
+            //     }
+            // }
+
+            // steps {
+            //     sh 'python manage.py migrate'
+            //     sh 'python manage.py runserver'
+            // }
+            steps {
+                sh 'ls'
             }
 
-            steps {
-                sh 'python manage.py migrate'
-                sh 'python manage.py runserver'
-            }
         }
 
         stage('Test') {
             agent {
                 docker { image 'cypress/base:10' }
-                label 'docker'
             }
             environment {
               CYPRESS_RECORD_KEY = credentials('cypress-example-kitchensink-record-key')
