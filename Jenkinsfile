@@ -3,20 +3,14 @@ pipeline {
     
     stages {
         stage('Build') {
-            // agent {
-            //     dockerfile {
-            //       filename "back-end/dockerfiles/ci/Dockerfile"
-            //     }
-            // }
-
-            // steps {
-            //     sh 'python manage.py migrate'
-            //     sh 'python manage.py runserver'
-            // }
-            steps {
-                sh 'ls'
+            agent {
+                dockerfile true
             }
 
+            steps {
+                sh 'python manage.py migrate'
+                sh 'python manage.py runserver'
+            }
         }
 
         stage('Test') {
