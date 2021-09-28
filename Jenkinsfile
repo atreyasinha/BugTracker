@@ -2,17 +2,6 @@ pipeline {
     agent none
     
     stages {
-        stage('Build') {
-            agent {
-                dockerfile true
-            }
-
-            steps {
-                sh 'python manage.py migrate'
-                sh 'python manage.py runserver'
-            }
-        }
-
         stage('Test') {
             agent {
                 docker { 
