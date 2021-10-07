@@ -10,7 +10,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                sh 'docker-compose up -d cypress'
+                sh './node_modules/.bin/cypress run'
             }
         }
     }
