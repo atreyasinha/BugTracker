@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script = 'docker-compose up -d web'
+                sh = 'docker-compose up -d web'
             }
         }
 
