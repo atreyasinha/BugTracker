@@ -9,16 +9,5 @@ services:
     image: web:app
     container_name: django_web_app
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    environment:
-      - PORT=8000
-  cypress:
-    image: "cypress/included:3.4.0"
-    depends_on:
-      - web
-    environment:
-      - CYPRESS_baseUrl=http://localhost:8000
-    working_dir: /e2e
-    volumes:
-      - ./:/e2e
 
 
