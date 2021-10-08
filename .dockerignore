@@ -1,2 +1,12 @@
 # enviroment configuration
-*/venv
+/venv
+
+# version control system
+.gitignore
+
+# test manifests
+/cypress
+/node_modules
+cypress.json
+package-lock.json
+package.json
