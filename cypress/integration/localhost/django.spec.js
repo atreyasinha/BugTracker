@@ -6,10 +6,4 @@ describe('django localhost page', () => {
     cy.get('.logo').should('have.text', '\n            django\n          ')
     cy.contains('The install worked successfully! Congratulations!')
   })
-
-  it('faulty', () => {
-    cy.visit('/')
-    cy.get('.logo').should('have.text', '\n            django\n          ')
-    cy.contains('The worked successfully! Congratulations!')
-  })
 })
