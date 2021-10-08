@@ -13,5 +13,11 @@ pipeline {
                 sh './node_modules/.bin/cypress run'
             }
         }
+
+        stage('Check') {
+            steps {
+                sh 'echo "This should not run"'
+            }
+        }
     }
 }
