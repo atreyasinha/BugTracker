@@ -10,3 +10,6 @@
 cypress.json
 package-lock.json
 package.json
+
+# credentials
+bug-tracker-sa-credentials.json
