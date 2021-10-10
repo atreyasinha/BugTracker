@@ -7,3 +7,6 @@
 
 # macOS fs
 .DS_Store
+
+# gcp credentials
+bug-tracker-sa-credentials.json
