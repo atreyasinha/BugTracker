@@ -12,4 +12,4 @@ package-lock.json
 package.json
 
 # gcp credentials
-/bug-tracker-sa-credentials.json
+bug-tracker-sa-credentials.json
