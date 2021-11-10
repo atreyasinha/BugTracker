@@ -8,14 +8,5 @@ services:
     image: web:app
     container_name: django_web_app
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-  terraform:
-    image: hashicorp/terraform:latest
-    volumes: 
-      - ./main.tf:/infrastructure/main.tf
-    working_dir: /infrastructure
-    container_name: terraform_gcp
-    environment:
-      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
-    command: "init"
 
 
