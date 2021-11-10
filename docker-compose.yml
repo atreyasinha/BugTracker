@@ -5,8 +5,7 @@ services:
     build: .
     ports: 
       - 8000:8000
-    image: web:app
-    container_name: django_web_app
+    image: web:local
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
 
 

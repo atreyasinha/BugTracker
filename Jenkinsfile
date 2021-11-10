@@ -44,7 +44,7 @@ pipeline {
 
         stage('Remove docker builds on local') {
             steps {
-                sh 'docker rmi web:app -f'
+                sh 'docker rmi web:local -f'
                 sh 'docker rmi b-t-registry'
                 sh 'docker rmi gcr.io/bug-tracker-328604/b-t-registry'
             }
