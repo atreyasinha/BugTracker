@@ -10,3 +10,6 @@
 
 # gcp credentials
 bug-tracker-sa-credentials.json
+
+# terrafrom provider registry
+/.terrafrom
