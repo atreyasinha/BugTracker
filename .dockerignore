@@ -7,7 +7,6 @@ venv
 
 # docker files
 Dockerfile
-docker-compose.yml
 
 # jenkinsfile
 Jenkinsfile
