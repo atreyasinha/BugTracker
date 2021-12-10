@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t b-t-registry .'
+                sh 'docker-compose up -d'
             }
         }
         
