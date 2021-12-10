@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python manage.py runserver 0.0.0.0:8000'
+                sh 'docker-compose up -d'
             }
         }
         
