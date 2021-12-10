@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-    project = "bug-tracker-328604"
+    project = "bug-tracker-334700"
     credentials = "${file("bug-tracker-sa-credentials.json")}"
     region = "us-west1"
     zone = "us-west1-a"
@@ -27,7 +27,7 @@ resource "google_cloud_run_service" "bug_tracker_deploy" {
     template {
         spec {
             containers {
-                image = "gcr.io/bug-tracker-328604/b-t-registry:latest"
+                image = "gcr.io/bug-tracker-334700/b-t-registry:latest"
             }
         }
     }
