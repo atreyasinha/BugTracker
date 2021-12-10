@@ -1,6 +1,3 @@
-# enviroment configuration
-/venv
-
 # cypress tests files
 */videos
 */screenshots
