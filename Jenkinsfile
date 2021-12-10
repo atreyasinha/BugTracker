@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker-compose up -d'
+                sh '. venv/bin/activate'
+                sh 'python manage.py runserver'
             }
         }
         
