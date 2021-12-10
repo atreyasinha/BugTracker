@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '. venv/bin/activate'
-                sh 'python manage.py runserver'
+                sh 'source venv/bin/activate'
+                sh 'python3 manage.py runserver'
             }
         }
         
