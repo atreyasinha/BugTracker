@@ -2,6 +2,12 @@ pipeline {
     agent any
     
     stages {
+        stage('Check') {
+            steps {
+                sh 'echo 'hello''
+            }
+        }
+        
         stage('Build') {
             steps {
                 sh 'docker-compose up -d'
