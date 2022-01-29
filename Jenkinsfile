@@ -10,6 +10,7 @@ pipeline {
         
         stage('Test') {
             steps {
+                sh 'set CYPRESS_RUN_BINARY=/var/lib/jenkins/.cache/Cypress/8.4.1/Cypress/Cypress'
                 sh 'npx cypress run'
             }
         }
