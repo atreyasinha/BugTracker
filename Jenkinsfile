@@ -1,13 +1,7 @@
 pipeline {
     agent any
     
-    stages {
-        stage('Check') {
-            steps {
-                sh 'echo hello'
-            }
-        }
-        
+    stages {        
         stage('Build') {
             steps {
                 sh 'docker-compose up -d'
@@ -16,6 +10,7 @@ pipeline {
         
         stage('Test') {
             steps {
+                sh 'cypress install'
                 sh './node_modules/.bin/cypress run'
             }
         }
