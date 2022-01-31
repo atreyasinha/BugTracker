@@ -8,15 +8,15 @@ pipeline {
             }
         }
         
-//         stage('Test') {
-//             steps {
-//                 sh 'npm install'
-//                 sh 'npx cypress run'
-//             }
-//         }
+        stage('Test') {
+            steps {
+                sh './node_modules/.bin/cypress run'
+            }
+        }
 
         stage('Get GCP access Keys from Storj') {
             steps {
+                sh 'unset GOOGLE_APPLICATION_CREDENTIALS'
                 sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
             }
         }
