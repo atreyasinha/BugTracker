@@ -10,3 +10,6 @@ bug-tracker-sa-credentials.json
 
 # terrafrom provider registry
 .terraform/
+
+# IDE files
+.idea/
