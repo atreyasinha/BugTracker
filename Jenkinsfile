@@ -2,23 +2,23 @@ pipeline {
     agent any
     
     stages {        
-        stage('Build') {
-            steps {
-                sh 'docker-compose up -d'
-            }
-        }
+//         stage('Build') {
+//             steps {
+//                 sh 'docker-compose up -d'
+//             }
+//         }
         
-        stage('Test') {
-            steps {
-                sh './node_modules/.bin/cypress run'
-            }
-        }
+//         stage('Test') {
+//             steps {
+//                 sh './node_modules/.bin/cypress run'
+//             }
+//         }
 
-        stage('Get GCP access Keys from Storj') {
-            steps {
-                sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
-            }
-        }
+//         stage('Get GCP access Keys from Storj') {
+//             steps {
+//                 sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
+//             }
+//         }
 
 //         stage('Destroy Cloud Run Infrastructure') {
 //             steps {
@@ -27,18 +27,18 @@ pipeline {
 //             }
 //         }
 
-        stage('Build Container for Deployment') {
-            steps {
-                sh 'docker build -t b-t-registry .'
-            }
-        }
+//         stage('Build Container for Deployment') {
+//             steps {
+//                 sh 'docker build -t b-t-registry .'
+//             }
+//         }
 
         stage('Push build to Container Registry') {
             steps {
-// 		sh 'cat bug-tracker-sa-credentials.json | docker login -u _json_key --password-stdin https://gcr.io'
-// 		sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
-// 		sh 'docker push gcr.io/bug-tracker-334700/b-t-registry'
-		sh '~/google-cloud-sdk/bin/gcloud --version'
+		sh '~/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file bug-tracker-sa-credentials.json'
+		sh '~/google-cloud-sdk/bin/gcloud gcloud auth configure-docker Bug-Tracker'
+		sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
+		sh 'docker push gcr.io/bug-tracker-334700/b-t-registry'
             }
         }
 
