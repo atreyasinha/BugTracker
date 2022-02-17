@@ -36,7 +36,7 @@ pipeline {
         stage('Push build to Container Registry') {
             steps {
 		sh '~/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file bug-tracker-sa-credentials.json'
-		sh '~/google-cloud-sdk/bin/gcloud gcloud auth configure-docker Bug-Tracker'
+		sh '~/google-cloud-sdk/bin/gcloud auth configure-docker Bug-Tracker'
 		sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
 		sh 'docker push gcr.io/bug-tracker-334700/b-t-registry'
             }
