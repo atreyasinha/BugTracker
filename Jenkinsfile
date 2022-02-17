@@ -38,9 +38,7 @@ pipeline {
 // 		sh 'cat bug-tracker-sa-credentials.json | docker login -u _json_key --password-stdin https://gcr.io'
 // 		sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
 // 		sh 'docker push gcr.io/bug-tracker-334700/b-t-registry'
-		    withEnv(['GCLOUD_PATH=~/google-cloud-sdk/bin']) {
-                	sh '$GCLOUD_PATH/gcloud --version'
-            	}
+		sh '~/google-cloud-sdk/bin/gcloud --version'
             }
         }
 
