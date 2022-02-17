@@ -35,7 +35,7 @@ pipeline {
 
         stage('Push build to Container Registry') {
             steps {
-		withEnv(['GCLOUD_PATH=/var/jenkins_home/google-cloud-sdk/bin']) {
+		withEnv(['GCLOUD_PATH=~/.jenkins/google-cloud-sdk/bin']) {
 			sh 'gcloud auth activate-service-account --key-file bug-tracker-sa-credentials.json'
 			sh 'gcloud auth configure-docker Bug-Tracker'
 			sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
