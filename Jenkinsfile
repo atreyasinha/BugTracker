@@ -43,23 +43,26 @@ pipeline {
 
         stage('Remove docker builds on local') {
             steps {
-                sh 'docker rmi web:local -f'
-                sh 'docker rmi b-t-registry'
-                sh 'docker rmi gcr.io/bug-tracker-334700/b-t-registry'
+//                 sh 'docker rmi web:local -f'
+//                 sh 'docker rmi b-t-registry'
+//                 sh 'docker rmi gcr.io/bug-tracker-334700/b-t-registry'
+	    	withEnv(['GCLOUD_PATH=~/google-cloud-sdk/bin']) {
+                	sh '$GCLOUD_PATH/gcloud --version'
+            	}
             }
         }
 
-        stage('Deploy to Cloud Run') {
-            steps {
-                sh 'terraform plan'
-                sh 'terraform apply -auto-approve'
-            }
-        }
+//         stage('Deploy to Cloud Run') {
+//             steps {
+//                 sh 'terraform plan'
+//                 sh 'terraform apply -auto-approve'
+//             }
+//         }
 
-        stage('Delete GCP access Keys for Security') {
-            steps {
-                sh 'rm bug-tracker-sa-credentials.json'
-            }
-        }
+//         stage('Delete GCP access Keys for Security') {
+//             steps {
+//                 sh 'rm bug-tracker-sa-credentials.json'
+//             }
+//         }
     }
 }
