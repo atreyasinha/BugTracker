@@ -8,8 +8,10 @@
 # gcp credentials
 bug-tracker-sa-credentials.json
 
-# terrafrom provider registry
+# terrafrom manifests
 .terraform/
+terraform.tfstate
+terraform.tfstate.backup
 
 # IDE files
 .idea/
