@@ -8,11 +8,11 @@ pipeline {
             }
         }
         
-//         stage('Test') {
-//             steps {
-//                 sh './node_modules/.bin/cypress run'
-//             }
-//         }
+        stage('Test') {
+            steps {
+                sh './node_modules/.bin/cypress run'
+            }
+        }
 
 //         stage('Get GCP access Keys from Storj') {
 //             steps {
