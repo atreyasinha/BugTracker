@@ -46,7 +46,6 @@ pipeline {
             steps {
                 sh 'docker rmi web:local -f'
                 sh 'docker rmi b-t-registry'
-                sh 'docker rmi gcr.io/bug-tracker-334700/b-t-registry'
             }
         }
 
