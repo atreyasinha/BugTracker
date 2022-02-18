@@ -14,11 +14,11 @@ pipeline {
 //             }
 //         }
 
-//         stage('Get GCP access Keys from Storj') {
-//             steps {
-//                 sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
-//             }
-//         }
+        stage('Get GCP access Keys from Storj') {
+            steps {
+                sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
+            }
+        }
 
 //         stage('Destroy Cloud Run Infrastructure') {
 //             steps {
