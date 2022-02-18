@@ -2,11 +2,11 @@ pipeline {
     agent any
     
     stages {        
-//         stage('Build') {
-//             steps {
-//                 sh 'docker-compose up -d'
-//             }
-//         }
+        stage('Build') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
         
 //         stage('Test') {
 //             steps {
@@ -14,11 +14,11 @@ pipeline {
 //             }
 //         }
 
-        stage('Get GCP access Keys from Storj') {
-            steps {
-                sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
-            }
-        }
+//         stage('Get GCP access Keys from Storj') {
+//             steps {
+//                 sh 'uplink cp sj://keys/bug-tracker-sa-credentials.json .'
+//             }
+//         }
 
 //         stage('Destroy Cloud Run Infrastructure') {
 //             steps {
@@ -34,12 +34,12 @@ pipeline {
 //             }
 //         }
 
-        stage('Push build to Container Registry') {
-            steps {
+//         stage('Push build to Container Registry') {
+//             steps {
 // 		sh 'cat bug-tracker-sa-credentials.json | docker login -u _json_key --password-stdin https://gcr.io'
-		sh 'docker push gcr.io/bug-tracker-334700/b-t-registry'
-            }
-        }
+// 		sh 'docker push gcr.io/bug-tracker-334700/b-t-registry'
+//             }
+//         }
 
 //         stage('Remove docker builds on local') {
 //             steps {
