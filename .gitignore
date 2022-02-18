@@ -10,8 +10,6 @@ bug-tracker-sa-credentials.json
 
 # terrafrom manifests
 .terraform/
-terraform.tfstate
-terraform.tfstate.backup
 
 # IDE files
 .idea/
