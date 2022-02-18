@@ -10,8 +10,8 @@ pipeline {
         
         stage('Test') {
             steps {
-//                 sh 'npm install cypress'
-                sh 'npx cypress run'
+                sh 'npm install cypress'
+                sh './node_modules/.bin/cypress run'
             }
         }
 
