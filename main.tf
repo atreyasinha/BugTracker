@@ -10,8 +10,8 @@ terraform {
 provider "google" {
     project = "bug-tracker-334700"
     credentials = "${file("bug-tracker-sa-credentials.json")}"
-    region = "us-east1"
-    zone = "us-east1-a"
+    region = "us-west1"
+    zone = "us-west1-a"
 }
 
 resource "google_project_service" "run_api" {
@@ -22,7 +22,7 @@ resource "google_project_service" "run_api" {
 
 resource "google_cloud_run_service" "bug_tracker_deploy" {
     name = "b-t-deploy"
-    location = "us-east1"
+    location = "us-west1"
 
     template {
         spec {
