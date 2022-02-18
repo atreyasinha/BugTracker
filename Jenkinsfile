@@ -17,7 +17,6 @@ pipeline {
 
         stage('Get GCP access Keys from Storj') {
             steps {
-                sh '~/uplink import accessgrant.txt'
                 sh '~/uplink cp sj://keys/bug-tracker-sa-credentials.json .'
             }
         }
@@ -32,7 +31,7 @@ pipeline {
         stage('Build Container for Deployment') {
             steps {
                 sh 'docker build -t b-t-registry .'
-	    	   sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
+	   	sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
             }
         }
 
