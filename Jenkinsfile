@@ -21,12 +21,12 @@ pipeline {
             }
         }
 
-//         stage('Destroy Cloud Run Infrastructure') {
-//             steps {
-//                 sh 'terraform init'
+        stage('Destroy Cloud Run Infrastructure') {
+            steps {
+                sh 'terraform init'
 //                 sh 'terraform destroy -auto-approve'
-//             }
-//         }
+            }
+        }
 
         stage('Build Container for Deployment') {
             steps {
