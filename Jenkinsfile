@@ -17,6 +17,7 @@ pipeline {
 
         stage('Get GCP access Keys from Storj') {
             steps {
+                sh '~/uplink import accessgrant.txt'
                 sh '~/uplink cp sj://keys/bug-tracker-sa-credentials.json .'
             }
         }
