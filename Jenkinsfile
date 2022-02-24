@@ -44,8 +44,9 @@ pipeline {
 
         stage('Remove docker builds on local') {
             steps {
-                sh 'docker rmi web:local -f'
-                sh 'docker rmi b-t-registry'
+                sh 'docker rmi $(docker images -a -q)'
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
             }
         }
 
