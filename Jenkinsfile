@@ -25,7 +25,7 @@ pipeline {
         stage('Destroy Cloud Run Infrastructure') {
             steps {
                 sh 'terraform init'
-                sh 'terraform destroy -auto-approve'
+                // sh 'terraform destroy -auto-approve'
             }
         }
 
