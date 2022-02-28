@@ -18,6 +18,7 @@ pipeline {
         stage('Get GCP access Keys from Storj') {
             steps {
                 sh '~/uplink cp sj://keys/bug-tracker-sa-credentials.json .'
+                // sh '~/uplink cp sj://terraform/terraform.tfstate .'
             }
         }
 
@@ -48,6 +49,7 @@ pipeline {
             steps {
                 sh 'terraform plan'
                 sh 'terraform apply -auto-approve'
+                sh '~/uplink cp terraform.tfstate sj://terraform'
             }
         }
 
