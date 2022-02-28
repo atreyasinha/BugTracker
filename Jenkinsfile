@@ -42,13 +42,6 @@ pipeline {
             }
         }
 
-        stage('Remove docker builds on local') {
-            steps {
-                sh 'docker stop $(docker ps -a -q)'
-                sh 'docker rm $(docker ps -a -q)'
-            }
-        }
-
         stage('Deploy to Cloud Run') {
             steps {
                 sh 'terraform plan'
@@ -60,6 +53,13 @@ pipeline {
             steps {
                 sh 'rm bug-tracker-sa-credentials.json'
             }
+        }
+    }
+
+    post { 
+        always { 
+            sh 'docker stop $(docker ps -a -q)'
+            sh 'docker rm $(docker ps -a -q)'
         }
     }
 }
