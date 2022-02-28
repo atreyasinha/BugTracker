@@ -21,7 +21,7 @@ resource "google_project_service" "run_api" {
 }
 
 resource "google_cloud_run_service" "bug_tracker_deploy" {
-    name = "b-t-deploy"
+    name = "bug-tracker-deploy"
     location = "us-west1"
 
     template {
