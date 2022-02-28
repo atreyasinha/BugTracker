@@ -58,8 +58,7 @@ pipeline {
 
     post { 
         always { 
-            sh 'docker stop $(docker ps -a -q)'
-            sh 'docker rm $(docker ps -a -q)'
+            sh 'docker system prune --all --volumes --force'
         }
     }
 }
