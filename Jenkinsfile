@@ -25,13 +25,15 @@ pipeline {
             steps {
                 sh 'terraform init'
                 sh 'terraform destroy -auto-approve'
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker system prune --all --volumes --force'
             }
         }
 
         stage('Build Container for Deployment') {
             steps {
                 sh 'docker build -t b-t-registry .'
-	   	sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
+	   	        sh 'docker tag b-t-registry gcr.io/bug-tracker-334700/b-t-registry'
             }
         }
 
